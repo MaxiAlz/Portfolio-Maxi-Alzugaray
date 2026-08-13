@@ -1,0 +1,6 @@
+{
+  "name": "Maxi Alzugaray | Audio Engineering & Drum Studio",
+  "description": "Plataforma web oficial de Maxi Alzugaray - Grabación remota de batería, mezcla, mastering, librería de samples, tienda y panel de administración.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
