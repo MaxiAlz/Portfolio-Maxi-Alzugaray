@@ -87,7 +87,7 @@ export const AdminCMS: React.FC<AdminCMSProps> = ({
   return (
     <div className="min-h-screen bg-[#f5f5f7] dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 py-12 px-4 sm:px-6 lg:px-8 transition-colors duration-200">
       <div className="max-w-7xl mx-auto space-y-8">
-        
+
         {/* Admin Header Banner */}
         <div className="bg-white dark:bg-zinc-900/90 p-6 sm:p-8 rounded-3xl border border-zinc-200/80 dark:border-zinc-800 flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-sm">
           <div className="space-y-1">
@@ -102,17 +102,15 @@ export const AdminCMS: React.FC<AdminCMSProps> = ({
           <div className="flex flex-wrap gap-1.5 bg-[#f5f5f7] dark:bg-zinc-950 p-1.5 rounded-full border border-zinc-200/80 dark:border-zinc-800">
             <button
               onClick={() => setActiveSubTab('overview')}
-              className={`px-4 py-1.5 rounded-full text-xs font-medium transition-colors ${
-                activeSubTab === 'overview' ? 'bg-primary text-zinc-950 font-bold' : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white'
-              }`}
+              className={`px-4 py-1.5 rounded-full text-xs font-medium transition-colors ${activeSubTab === 'overview' ? 'bg-primary text-zinc-950 font-bold' : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white'
+                }`}
             >
               Métricas
             </button>
             <button
               onClick={() => setActiveSubTab('quotes')}
-              className={`px-4 py-1.5 rounded-full text-xs font-medium transition-colors relative ${
-                activeSubTab === 'quotes' ? 'bg-primary text-zinc-950 font-bold' : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white'
-              }`}
+              className={`px-4 py-1.5 rounded-full text-xs font-medium transition-colors relative ${activeSubTab === 'quotes' ? 'bg-primary text-zinc-950 font-bold' : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white'
+                }`}
             >
               Cotizaciones
               {quotes.filter(q => q.status === 'Pendiente').length > 0 && (
@@ -123,17 +121,15 @@ export const AdminCMS: React.FC<AdminCMSProps> = ({
             </button>
             <button
               onClick={() => setActiveSubTab('services')}
-              className={`px-4 py-1.5 rounded-full text-xs font-medium transition-colors ${
-                activeSubTab === 'services' ? 'bg-primary text-zinc-950 font-bold' : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white'
-              }`}
+              className={`px-4 py-1.5 rounded-full text-xs font-medium transition-colors ${activeSubTab === 'services' ? 'bg-primary text-zinc-950 font-bold' : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white'
+                }`}
             >
               Servicios
             </button>
             <button
               onClick={() => setActiveSubTab('store')}
-              className={`px-4 py-1.5 rounded-full text-xs font-medium transition-colors ${
-                activeSubTab === 'store' ? 'bg-primary text-zinc-950 font-bold' : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white'
-              }`}
+              className={`px-4 py-1.5 rounded-full text-xs font-medium transition-colors ${activeSubTab === 'store' ? 'bg-primary text-zinc-950 font-bold' : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white'
+                }`}
             >
               Tienda & Samples
             </button>
@@ -165,7 +161,7 @@ export const AdminCMS: React.FC<AdminCMSProps> = ({
               <div className="p-6 rounded-3xl bg-white dark:bg-zinc-900/90 border border-zinc-200/80 dark:border-zinc-800 space-y-1.5 shadow-sm">
                 <span className="text-xs font-semibold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider block">Servicios Activos</span>
                 <span className="text-3xl font-bold text-zinc-900 dark:text-white">{services.length}</span>
-                <span className="text-[11px] text-zinc-500 block">Baterías, Mezcla, Mastering</span>
+                <span className="text-[11px] text-zinc-500 block">Batería, Mezcla, Mastering</span>
               </div>
             </div>
 
