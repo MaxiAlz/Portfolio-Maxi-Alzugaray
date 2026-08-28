@@ -65,7 +65,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
           />
           {/* Dark Overlay Layer */}
           <div className="absolute inset-0 bg-zinc-950/75 backdrop-contrast-110" />
-          <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/60 to-zinc-950/40" />
+          <div className="absolute inset-0 bg-linear-to-t from-zinc-950 via-zinc-950/60 to-zinc-950/40" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-16 space-y-6">

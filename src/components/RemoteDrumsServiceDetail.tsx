@@ -135,7 +135,7 @@ export const RemoteDrumsServiceDetail: React.FC<RemoteDrumsServiceDetailProps> =
     <div className="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 transition-colors duration-200 min-h-screen pb-20">
 
       {/* 1. Full-width Hero Header with Dark Overlay */}
-      <section className="relative overflow-hidden bg-zinc-950 text-white min-h-[480px] flex items-center border-b border-zinc-800/80 mb-12">
+      <section className="relative overflow-hidden bg-zinc-950 text-white min-h-120 flex items-center border-b border-zinc-800/80 mb-12">
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
           <img
             src={service.image || mapexImg1}
@@ -144,7 +144,7 @@ export const RemoteDrumsServiceDetail: React.FC<RemoteDrumsServiceDetailProps> =
           />
           {/* Dark Overlay Layer */}
           <div className="absolute inset-0 bg-zinc-950/80 backdrop-contrast-110" />
-          <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/70 to-zinc-950/40" />
+          <div className="absolute inset-0 bg-linear-to-t from-zinc-950 via-zinc-950/70 to-zinc-950/40" />
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-200 h-87.5 bg-primary/20 blur-[150px] pointer-events-none rounded-full" />
         </div>
 

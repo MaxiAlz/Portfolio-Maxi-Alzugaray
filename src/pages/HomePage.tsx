@@ -93,14 +93,14 @@ export const HomePage: React.FC<HomePageProps> = ({
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                 <div className="p-4 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800 space-y-1">
-                  <span className="text-xs font-semibold text-primary uppercase tracking-wider block flex items-center gap-1.5">
+                  <span className="text-xs font-semibold text-primary uppercase tracking-wider  flex items-center gap-1.5">
                     <Drum className="w-4 h-4" /> Baterías de Sesión
                   </span>
                   <p className="text-xs text-zinc-600 dark:text-zinc-400">Rock, Indie, Pop y Folklore con ejecución orgánica y afinación precisa.</p>
                 </div>
 
                 <div className="p-4 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800 space-y-1">
-                  <span className="text-xs font-semibold text-primary uppercase tracking-wider block flex items-center gap-1.5">
+                  <span className="text-xs font-semibold text-primary uppercase tracking-wider  flex items-center gap-1.5">
                     <Sliders className="w-4 h-4" /> Mirada Integral de Audio
                   </span>
                   <p className="text-xs text-zinc-600 dark:text-zinc-400">Técnico de audio cuidando la interpretación y la calidad sonora del multitrack.</p>
