@@ -58,7 +58,7 @@ export default function App() {
         if (Array.isArray(parsed) && parsed.length === INITIAL_SERVICES.length && parsed[0]?.image) {
           return parsed;
         }
-      } catch (e) {}
+      } catch (e) { }
     }
     return INITIAL_SERVICES;
   });
@@ -230,7 +230,7 @@ export default function App() {
     <BrowserRouter>
       <ScrollToTop />
       <div className="min-h-screen bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 flex flex-col font-sans transition-colors duration-200 selection:bg-primary selection:text-zinc-950">
-        
+
         {/* Navigation Header */}
         <Navbar
           cartCount={cartItems.reduce((sum, item) => sum + item.quantity, 0)}
@@ -288,6 +288,9 @@ export default function App() {
                   <ServiceDetailPage
                     services={services}
                     onOpenQuote={handleOpenQuoteModal}
+                    isPlaying={isPlaying}
+                    currentTrack={currentTrack}
+                    onTogglePlay={handleTogglePlay}
                   />
                 }
               />

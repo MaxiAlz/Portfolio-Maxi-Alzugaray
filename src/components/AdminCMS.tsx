@@ -53,7 +53,7 @@ export const AdminCMS: React.FC<AdminCMSProps> = ({
       iconName: 'Sliders',
       basePriceUSD: newServicePrice,
       deliverables: ['Archivos de audio de alta resolución', 'Revisiones ilimitadas'],
-      turnaroundDays: 3,
+      turnaroundDays: '3 a 7',
       features: ['Atención directa por Maxi Alzugaray']
     };
 

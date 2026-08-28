@@ -4,20 +4,28 @@ export const INITIAL_SERVICES: Service[] = [
   {
     id: 'remote-drums',
     title: 'Baterías Remotas',
-    subtitle: 'Grabación remota a medida',
-    description: 'Grabo la batería de tu canción, teniendo en cuenta el audio que buscas, el instrumento ideal y la ejecución precisa para darle vida a tu producción.',
+    subtitle: 'Grabación remota profesional a medida',
+    description: `Grabo la batería de tu canción desde mi  studio profesional, teniendo en cuenta el audio que buscás, el instrumento ideal y la ejecución precisa para darle vida y ponche a tu producción.
+
+A través de un flujo de trabajo 100% colaborativo, recibís entre 8 y 10 canales en formato WAV (24-bit / 96kHz) listos para arrastrar a tu DAW y comenzar la mezcla. Adaptamos la configuración de cuerpo (madera o metal) y la microfonía a géneros como Rock, Pop, Indie o Folklore.`,
     iconName: 'Drum',
-    image: 'https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?auto=format&fit=crop&q=80&w=1200',
     basePriceUSD: 120,
     deliverables: [
-      '12 - 16 Pistas WAV sin comprimir (24-bit / 96kHz)',
-      'Tomas crudas (Dry) y procesadas con Preamps de válvulas',
-      'Pistas de Room A/B & Sub-Kick para profundidad',
-      'Revisiones incluidas'
+      '8 a 10 Canales WAV en alta definición (24-bit / 96kHz)',
+      'Tomas crudas (Dry) y tomas procesadas en preamps Focusrite Pro',
+      'Canales de Room Ambience A/B & Sub-Kick para peso natural',
+      'Muestras rápidas en MP3 previa entrega multitrack',
+      'Revisiones y ajustes incluidos antes del corte final'
     ],
-    turnaroundDays: 3,
+    turnaroundDays: '3 a 7',
     popular: true,
-    features: ['Atención personalizada en arreglos', 'Formatos Cubase, Pro Tools, Logic o WAVs', 'Video de la sesión disponible']
+    features: [
+      'Atención personalizada en arreglos y groove',
+      'Compatibilidad total con Pro Tools, Cubase, Logic, Ableton o WAVs',
+      'Afinación quirúrgica y selección de parches a medida',
+      'Video en HD de la sesión de grabación disponible (opcional)'
+    ]
   },
   {
     id: 'live-studio-recording',
@@ -378,50 +386,44 @@ export const GEAR_LIST: GearItem[] = [
   {
     id: 'gear-1',
     category: 'Baterías & Redoblantes',
-    name: 'Tama Starclassic Maple Master Works',
-    details: 'Cascos de arce seleccionados de 6 capas. Bómbo de 22"x18", Toms de 10", 12", 14" y 16".'
+    name: 'Mapex Pro Mars Series (Años 80s)',
+    details: 'Medidas: Bombo 22"x16", Toms de 12" y 16", Tambor 14"x6.5". Tono profundo y amplio. Ideal para Rock, Pop, Indie y producciones que busquen cuerpo grave y presencia orgánica.'
   },
   {
     id: 'gear-2',
     category: 'Baterías & Redoblantes',
-    name: 'Ludwig Supraphonic 14"x6.5" Aluminum (Vintage 1978)',
-    details: 'El redoblante más grabado de la historia del rock. Ataque crujiente y tono seco versátil.'
+    name: 'Sonor Essential Force',
+    details: 'Medidas: Bombo 22"x20", Toms de 10", 12" y 14". Definición quirúrgica y armónicos controlados. Ideal para Funk, Folklore, Pop moderno y canciones con carga electrónica.'
   },
   {
     id: 'gear-3',
     category: 'Baterías & Redoblantes',
-    name: 'DW Collector’s Series Brass Snare 14"x5.5"',
-    details: 'Redoblante de latón pesado para estilos agresivos, metal y pop moderno.'
+    name: 'Ludwig Supraphonic 14"x6.5" Aluminio & Cajas de Latón/Madera',
+    details: 'Tambor Ludwig Supraphonic 14"x6.5" de aluminio repujado, cajas de latón y arce para respuesta seca, crujiente y versátil.'
   },
   {
     id: 'gear-4',
     category: 'Platos / Platillos',
-    name: 'Zildjian K Custom Dark & Sabian HHX Complex Sets',
-    details: 'Rides de 22", Hi-Hats de 14" y 15", Crashes de 18", 19" y 20", Chinas y Effect Cymbal Stacks.'
+    name: 'Set Profesional Zildjian & Sabian',
+    details: 'Ride Zildjian Z Custom 20", Crash Zildjian A Custom 16", Zildjian K Dark Thin Crash 18", Hi-Hats Sabian XS20 14".'
   },
   {
     id: 'gear-5',
     category: 'Micrófonos',
-    name: 'Par Emparejado Neumann KM184 & AKG C414 XLS',
-    details: 'Captura microscópica para Overheads y sala acústica principal.'
+    name: 'Set de Microfonía Shure, AKG & Audio-Technica',
+    details: 'Shure SM57 (Snare), Beta 52 / Solomon Sub-Kick (Kick), AKG C414 / D112, condensadores Audio-Technica para Overheads y Room Ambience A/B.'
   },
   {
     id: 'gear-6',
-    category: 'Micrófonos',
-    name: 'Shure SM57, Sennheiser e904, Solomon Sub-Kick, AKG D112',
-    details: 'Microfonía dedicada para captura directa de parches y frecuencia subgraves.'
+    category: 'Preamps & Convertidores',
+    name: 'Focusrite Pro Preamps & Convertidores HD',
+    details: 'Preamplificadores analógicos Focusrite Pro para capturar transitorios ultra limpios con conversión en alta definición 24-bit / 48kHz - 96kHz.'
   },
   {
     id: 'gear-7',
-    category: 'Preamps & Convertidores',
-    name: 'Focusrite RedNet MP8R & Universal Audio Apollo x8p',
-    details: '16 Canales de conversión AD/DA de ultra baja distorsión con preamps analógicos ultra limpios.'
-  },
-  {
-    id: 'gear-8',
     category: 'Monitoreo & Acústica',
-    name: 'Monitores Focal Trio6 Be & Audífonos Beyerdynamic DT 1990 Pro',
-    details: 'Tratamiento acústico profesional de trampa de graves Primacoustic y difusores QRD.'
+    name: 'Estudio Acondicionado & DAW Pro Tools',
+    details: 'Sala tratada acústicamente para capturar respuestas de ambiente limpias y controladas. Sistema de grabación principal Pro Tools.'
   }
 ];
 

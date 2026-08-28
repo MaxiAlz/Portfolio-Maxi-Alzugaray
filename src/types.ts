@@ -25,7 +25,7 @@ export interface Service {
   image?: string;
   basePriceUSD: number;
   deliverables: string[];
-  turnaroundDays: number;
+  turnaroundDays: number | string;
   popular?: boolean;
   features: string[];
 }
