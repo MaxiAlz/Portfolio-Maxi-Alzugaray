@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Drum, Mail, MapPin, Instagram, Youtube, Music2, ArrowRight } from 'lucide-react';
 
+import logoMaxi from '../../assets/images/logos/logo_maxi_negro.png';
+
 interface FooterProps {
   onOpenQuote: () => void;
 }
@@ -20,15 +22,13 @@ export const Footer: React.FC<FooterProps> = ({ onOpenQuote }) => {
   return (
     <footer className="bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 transition-colors duration-200 border-t border-zinc-200/80 dark:border-zinc-800/80 pt-16 pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
-          
+
           {/* Brand Info */}
           <div className="lg:col-span-2 space-y-4">
-            <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-full bg-primary flex items-center justify-center text-zinc-950">
-                <Drum className="w-4 h-4 stroke-[2.2]" />
-              </div>
+            <div className="flex items-center gap-3">
+              <img src={logoMaxi} alt="Maxi Alzugaray" className="h-8 w-auto object-contain dark:invert" />
               <span className="font-bold text-lg text-zinc-900 dark:text-white tracking-tight">Maxi Alzugaray</span>
             </div>
 

@@ -34,6 +34,7 @@ import drumsMapImg from '../../assets/images/otros/drums_delivered_to_map.jpg';
 import platillosPortadaImg from '../../assets/images/baterias/platillos_portada.JPG';
 import hearoMicrofonosImg from '../../assets/images/hearos/hearo_microfonos.JPG';
 import microSnareImg from '../../assets/images/hearos/micro_en_snare.png';
+import logoMaxi from '../../assets/images/logos/logo_maxi_negro.png';
 
 interface RemoteDrumsServiceDetailProps {
   service: Service;
@@ -181,8 +182,8 @@ export const RemoteDrumsServiceDetail: React.FC<RemoteDrumsServiceDetailProps> =
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-16 space-y-8">
-          {/* Back Button */}
-          <div>
+          {/* Back Button & Brand Badge */}
+          <div className="flex items-center justify-between gap-4">
             <button
               onClick={() => navigate('/servicios')}
               className="inline-flex items-center gap-2 text-xs font-semibold text-zinc-300 hover:text-white transition-colors bg-zinc-900/80 border border-zinc-700/80 px-4 py-2 rounded-full backdrop-blur-md cursor-pointer"
@@ -190,6 +191,11 @@ export const RemoteDrumsServiceDetail: React.FC<RemoteDrumsServiceDetailProps> =
               <ArrowLeft className="w-4 h-4" />
               <span>Volver a Servicios</span>
             </button>
+
+            <div className="hidden sm:flex items-center gap-2.5 bg-zinc-900/80 border border-zinc-800 px-4 py-2 rounded-full backdrop-blur-md">
+              <img src={logoMaxi} alt="Maxi Alzugaray" className="h-5 w-auto object-contain invert" />
+              <span className="text-xs font-bold text-zinc-200 tracking-tight">MAXI ALZUGARAY</span>
+            </div>
           </div>
 
           <div className="max-w-4xl space-y-5">
@@ -984,8 +990,11 @@ export const RemoteDrumsServiceDetail: React.FC<RemoteDrumsServiceDetailProps> =
         {/* 9. Final CTA Banner */}
         <section className="p-10 rounded-3xl bg-zinc-950 text-white border border-zinc-800 text-center space-y-6 shadow-2xl relative overflow-hidden">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-160 h-40 bg-primary/20 blur-[100px] pointer-events-none rounded-full" />
-          <div className="relative z-10 max-w-2xl mx-auto space-y-3">
-            <span className="text-xs font-semibold text-primary uppercase tracking-widest">
+          <div className="relative z-10 max-w-2xl mx-auto space-y-4">
+            <div className="flex justify-center">
+              <img src={logoMaxi} alt="Maxi Alzugaray Logo" className="h-10 w-auto object-contain invert opacity-90" />
+            </div>
+            <span className="text-xs font-semibold text-primary uppercase tracking-widest block">
               ¿Listo para empezar?
             </span>
             <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">

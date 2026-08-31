@@ -3,6 +3,8 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Disc, Sliders, Drum, Layers, Cpu, ShoppingBag, User, Menu, X, Sun, Moon } from 'lucide-react';
 import { Currency } from '../types';
 
+import logoMaxi from '../../assets/images/logos/logo_maxi_negro.png';
+
 interface NavbarProps {
   cartCount: number;
   onOpenCart: () => void;
@@ -57,6 +59,11 @@ export const Navbar: React.FC<NavbarProps> = ({
             onClick={() => setIsAdminOpen(false)}
             className="flex items-center gap-3 cursor-pointer group"
           >
+            <img
+              src={logoMaxi}
+              alt="Maxi Alzugaray Logo"
+              className="h-8 sm:h-9 w-auto object-contain dark:invert transition-all group-hover:scale-105"
+            />
             <div>
               <div className="flex items-center gap-2">
                 <span className="font-bold text-base sm:text-lg tracking-tight text-zinc-900 dark:text-white">
@@ -77,11 +84,10 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <button
                   key={link.path}
                   onClick={() => handleNavClick(link.path)}
-                  className={`px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-medium transition-all ${
-                    active
+                  className={`px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-medium transition-all ${active
                       ? 'bg-zinc-900 text-white dark:bg-white dark:text-zinc-950 font-semibold shadow-sm'
                       : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-900'
-                  }`}
+                    }`}
                 >
                   {link.label}
                 </button>
@@ -120,11 +126,10 @@ export const Navbar: React.FC<NavbarProps> = ({
                 setIsAdminOpen(!isAdminOpen);
                 setMobileMenuOpen(false);
               }}
-              className={`p-2 rounded-full text-xs font-medium transition-colors ${
-                isAdminOpen
+              className={`p-2 rounded-full text-xs font-medium transition-colors ${isAdminOpen
                   ? 'bg-zinc-900 text-white dark:bg-white dark:text-zinc-950 font-semibold'
                   : 'text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-900'
-              }`}
+                }`}
               title="Panel Admin CMS"
             >
               <User className="w-4 h-4" />
@@ -172,11 +177,10 @@ export const Navbar: React.FC<NavbarProps> = ({
                 <button
                   key={link.path}
                   onClick={() => handleNavClick(link.path)}
-                  className={`flex items-center justify-between w-full px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${
-                    active
+                  className={`flex items-center justify-between w-full px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${active
                       ? 'bg-primary/15 text-primary font-semibold'
                       : 'text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-900'
-                  }`}
+                    }`}
                 >
                   <span>{link.label}</span>
                   {active && <div className="w-2 h-2 rounded-full bg-primary" />}
