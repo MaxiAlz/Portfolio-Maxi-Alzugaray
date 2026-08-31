@@ -18,7 +18,8 @@ import {
   X,
   ChevronLeft,
   ChevronRight,
-  ZoomIn
+  ZoomIn,
+  Mic
 } from 'lucide-react';
 
 import mapexImg1 from '../../assets/images/baterias/bateria_mapex_promars_1.jpeg';
@@ -30,6 +31,9 @@ import sonorImg2 from '../../assets/images/baterias/bateria_sonor_2.jpeg';
 import sonorImg3 from '../../assets/images/baterias/bateria_sonor_3.jpeg';
 
 import drumsMapImg from '../../assets/images/otros/drums_delivered_to_map.jpg';
+import platillosPortadaImg from '../../assets/images/baterias/platillos_portada.JPG';
+import hearoMicrofonosImg from '../../assets/images/hearos/hearo_microfonos.JPG';
+import microSnareImg from '../../assets/images/hearos/micro_en_snare.png';
 
 interface RemoteDrumsServiceDetailProps {
   service: Service;
@@ -49,19 +53,29 @@ const INTERNATIONAL_COUNTRIES = [
   { isWorld: true, name: 'Y más países' }
 ];
 
+
+
 const FAQS = [
   {
-    question: '¿Cómo vas a recibir los tracks?',
-    answer: 'Recibirás entre 8 y 10 canales en formato WAV por cada toma de batería realizada.\n\nPrimero, me envías las pistas de tus canciones junto con el BPM de cada una. Si tenés una programación de batería o alguna referencia sonora, podés incluirla.\n\nEn caso de que todavía no tengas una idea definida, podemos trabajarla juntos hasta encontrar la interpretación que mejor se adapte al estilo y la energía de tu música.\n\nUna vez finalizada la grabación, te envío los tracks por separado en formato WAV (24-bit / 48kHz - 96kHz), listos para incorporar a tu DAW y comenzar la mezcla.'
+    question: '¿Cómo vas a recibire los tracks?',
+    answer: 'Recibirás un multitrack (Pistas separadas) en formato WAV por cada toma de batería realizada, ya editadas y corregidas para que cada toma esté perfectamente a tiempo y sin errores en tu sesión. De esta forma podras enviar a mezclar o seguir produciendo sin problema'
   },
   {
     question: '¿Se pueden hacer devoluciones o revisiones?',
-    answer: 'Sí, por supuesto. Durante el proceso de grabación te enviaré muestras rápidas en MP3 para que escuches y confirmes cada toma antes de la entrega final del multitrack.'
+    answer: 'Sí, por supuesto. Durante el proceso de grabación te enviaré muestras rápidas en MP3 para que escuches y confirmes cada toma antes de la entrega final del multitrack. luego re enviare el multitrack y ahí el trabajo se considera finalizado.'
   },
   {
-    question: '¿Puedo hacer correcciones una vez que recibí los tracks?',
-    answer: 'Una vez aprobadas las muestras y entregado el multitrack, el trabajo se considera finalizado. Si más adelante querés realizar cambios estructurales o nuevas tomas, podemos agendar una nueva sesión como una producción adicional.'
-  }
+    question: '¿Puedes pedir variaciones de un mismo tema?',
+    answer: 'Si, claro. Cuando nos comuniquemos pueden indicar las ideas que tienes en mente para la cancion, puedo grabar versiones diferentes con distintos grooves o fills para que luego elijas la que mas te guste o peudas armar un blend de todo el material que te envio.'
+  },
+  {
+    question: '¿Cuánto tiempo demoran las grabaciones?',
+    answer: 'Una vez enviado el material de trabajo (Pistas, BPM de la cancion y referencias) recibiras tus pistas de bateria en un plazo de 7 a 10 dias habiles. Pero si necesitas con urgencia puedo grabar en 48hs con un costo adicional.'
+  },
+  {
+    question: 'Mi Demo no tiene un tiempo especifico, ¿Puedes grabar igual?',
+    answer: 'Si, claro. Hoy en dia muchos demos que son producidor con IA o en formatos que no tiene un BPM especifico. No te preocupes, lo podemos trabajar igual, puedo editar ese demo a una grilla o grabar sobre la misma pista, vos elegis.'
+  },
 ];
 
 export const RemoteDrumsServiceDetail: React.FC<RemoteDrumsServiceDetailProps> = ({
@@ -108,6 +122,24 @@ export const RemoteDrumsServiceDetail: React.FC<RemoteDrumsServiceDetailProps> =
       images: [drumsMapImg],
       currentIndex: 0,
       title: 'Mapa Mundial de Baterías Grabadas & Enviadas de Forma Remota'
+    });
+  };
+
+  const openPlatillosLightbox = () => {
+    setLightboxData({
+      images: [platillosPortadaImg],
+      currentIndex: 0,
+      title: 'Set de Platillos Zildjian & Sabian'
+    });
+  };
+
+  const equipmentPhotos = [hearoMicrofonosImg, microSnareImg];
+
+  const openEquipmentLightbox = (index: number) => {
+    setLightboxData({
+      images: equipmentPhotos,
+      currentIndex: index,
+      title: 'Equipamiento de Grabación & Microfonía'
     });
   };
 
@@ -177,7 +209,8 @@ export const RemoteDrumsServiceDetail: React.FC<RemoteDrumsServiceDetailProps> =
             </h1>
 
             <p className="text-zinc-200 text-base sm:text-xl font-normal leading-relaxed max-w-3xl drop-shadow-xs">
-              Grabo la batería de tu canción desde mi studio profesional. Aportamos musicalidad, energía y un sonido auténtico a medida de tu producción, entregando entre 8 y 10 canales en formato WAV (24-bit / 48kHz - 96kHz).
+              Grabo baterías para tus canciones y proyectos desde mi estudio.
+              Trabajeremos en la <span className="text-primary font-bold">produccion y audio de bateria que tu cancion necesita,</span> luego te enviare  las tomas individuales en formato multitrack para mezclar.
             </p>
 
             {/* Quick Metrics Bar */}
@@ -187,16 +220,16 @@ export const RemoteDrumsServiceDetail: React.FC<RemoteDrumsServiceDetailProps> =
                 <span className="text-base font-bold text-white">3 a 7 Días Hábiles</span>
               </div>
               <div className="p-3.5 rounded-2xl bg-zinc-900/80 border border-zinc-800 backdrop-blur-md">
-                <span className="text-xs text-zinc-400 block font-medium">Multitrack WAV</span>
-                <span className="text-base font-bold text-primary">8 - 10 canales</span>
+                <span className="text-xs text-zinc-400 block font-medium">Archivos de audio en</span>
+                <span className="text-base font-bold text-primary">Multitrack / Stems</span>
               </div>
               <div className="p-3.5 rounded-2xl bg-zinc-900/80 border border-zinc-800 backdrop-blur-md">
                 <span className="text-xs text-zinc-400 block font-medium">Resolución Audio</span>
-                <span className="text-base font-bold text-white">24bit / 48kHz - 96kHz</span>
+                <span className="text-base font-bold text-white">24bit / 48kHz </span>
               </div>
               <div className="p-3.5 rounded-2xl bg-zinc-900/80 border border-zinc-800 backdrop-blur-md">
-                <span className="text-xs text-zinc-400 block font-medium">Muestras de audio</span>
-                <span className="text-base font-bold text-primary">Incluidas en MP3</span>
+                <span className="text-xs text-zinc-400 block font-medium">Formatos de entrega</span>
+                <span className="text-base font-bold text-primary">Raw o Midex</span>
               </div>
             </div>
 
@@ -241,7 +274,7 @@ export const RemoteDrumsServiceDetail: React.FC<RemoteDrumsServiceDetailProps> =
                   Baterías grabadas para artistas de todo el mundo
                 </h2>
                 <p className="text-zinc-600 dark:text-zinc-400 text-sm sm:text-base leading-relaxed font-normal">
-                  He tenido la oportunidad de grabar sesiones remotas para discos, singles y producciones independientes en múltiples países, adaptándome a diferentes culturas sonoras y exigencias de producción.
+                  He tenido la oportunidad de <span className="font-bold">grabar sesiones remotas</span> para discos, singles y producciones independientes en múltiples países, adaptándome a diferentes culturas sonoras y exigencias de producción.
                 </p>
               </div>
 
@@ -291,6 +324,55 @@ export const RemoteDrumsServiceDetail: React.FC<RemoteDrumsServiceDetailProps> =
           </div>
         </section>
 
+        {/* 6. Modalidad de Trabajo (Visual 4-Step Process) */}
+        <section className="space-y-8">
+          <div className="text-center max-w-3xl mx-auto space-y-3">
+            <span className="text-xs font-semibold text-primary tracking-widest uppercase">
+              Paso a Paso
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-900 dark:text-white">
+              Modalidad de Trabajo
+            </h2>
+            <p className="text-zinc-600 dark:text-zinc-400 text-base sm:text-lg">
+              Un flujo sencillo y acompañado en cada etapa de la producción.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="p-6 rounded-3xl bg-[#f5f5f7] dark:bg-zinc-900/90 border border-zinc-200/80 dark:border-zinc-800 space-y-3 relative group">
+              <div className="flex items-center gap-2">
+                <span className="w-6 h-6 rounded-full bg-primary text-zinc-950 font-bold text-xs flex items-center justify-center">1</span>
+                <h3 className="font-bold text-zinc-900 dark:text-white text-base">Me envias tus pistas</h3>
+              </div>
+              <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed font-normal">
+                Me envías las pistas o demo junto con el tempo (BPM) de la cancion.
+                También podés compartir referencias del estilo que buscas, o si tenés una programación de batería, me ayudará a entender mejor lo que buscás.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-3xl bg-[#f5f5f7] dark:bg-zinc-900/90 border border-zinc-200/80 dark:border-zinc-800 space-y-3 relative group">
+              <div className="flex items-center gap-2">
+                <span className="w-6 h-6 rounded-full bg-primary text-zinc-950 font-bold text-xs flex items-center justify-center">2</span>
+                <h3 className="font-bold text-zinc-900 dark:text-white text-base">¡A grabar!</h3>
+              </div>
+              <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed font-normal">
+                En base a tu idea y referencias, elegiremos la configuración ideal (set de batería, platos, micrófonos y afinación) y grabaré las baterías según lo acordado.
+                Si lo necesitas, durante el proceso de grabación te envío muestras rápidas en MP3 para que escuches y confirmes cada toma antes de la entrega final.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-3xl bg-[#f5f5f7] dark:bg-zinc-900/90 border border-zinc-200/80 dark:border-zinc-800 space-y-3 relative group">
+              <div className="flex items-center gap-2">
+                <span className="w-6 h-6 rounded-full bg-primary text-zinc-950 font-bold text-xs flex items-center justify-center">3</span>
+                <h3 className="font-bold text-zinc-900 dark:text-white text-base">Recibís el material</h3>
+              </div>
+              <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed font-normal">
+                Una vez finalizada y aprobada la grabación, recibiras los tracks con el proceso y formato que hayamos acordado, listos para incorporar a tu DAW y mezclar.
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* 3. FEATURED DRUM KITS SHOWCASE WITH REAL PHOTOS & CONTAINED FITTING */}
         <section className="space-y-10">
           <div className="text-center max-w-3xl mx-auto space-y-3">
@@ -299,7 +381,7 @@ export const RemoteDrumsServiceDetail: React.FC<RemoteDrumsServiceDetailProps> =
               <span>Backline disponible para sesiones presenciales y remotas</span>
             </span>
             <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-zinc-900 dark:text-white">
-              Baterias y Gear Disponible
+              Baterias y Equipamiento Disponible
             </h2>
           </div>
 
@@ -498,38 +580,300 @@ export const RemoteDrumsServiceDetail: React.FC<RemoteDrumsServiceDetailProps> =
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 pt-2">
-            <div className="p-5 rounded-2xl bg-white dark:bg-zinc-950 border border-zinc-200/80 dark:border-zinc-800 space-y-2">
-              <span className="text-xs font-bold text-primary uppercase tracking-wider block">Ride 20"</span>
-              <h4 className="font-bold text-zinc-900 dark:text-white text-base">Zildjian Z Custom 20"</h4>
-              <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
-                Ping súper definido, campana potente y articulación rítmica destacada.
-              </p>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 pt-2 items-stretch">
+            {/* Imagen destacada de los platillos */}
+            <div className="lg:col-span-5 flex">
+              <div
+                onClick={openPlatillosLightbox}
+                className="relative w-full h-72 sm:h-80 lg:h-full min-h-75 rounded-2xl overflow-hidden bg-[#e8e8ed] dark:bg-zinc-950 border border-zinc-300/80 dark:border-zinc-800 flex items-center justify-center cursor-pointer group/img shadow-sm"
+              >
+                {/* Background blur opacity fill */}
+                <img
+                  src={platillosPortadaImg}
+                  alt=""
+                  className="absolute inset-0 w-full h-full object-cover blur-xl opacity-30 pointer-events-none"
+                />
+                {/* Maincontained/covered vertical photo */}
+                <img
+                  src={platillosPortadaImg}
+                  alt="Set de Platillos Zildjian & Sabian"
+                  className="relative z-10 w-full h-full object-cover transition-all duration-300 group-hover/img:scale-103"
+                />
+
+                {/* Tag Badge */}
+                <div className="absolute top-3 left-3 z-20">
+                  <span className="px-3 py-1 rounded-full bg-zinc-950/75 backdrop-blur-md text-primary font-bold text-[11px] uppercase tracking-wider border border-zinc-800/80 shadow-md">
+                    Zildjian & Sabian
+                  </span>
+                </div>
+
+                {/* Expand Hover Overlay */}
+                <div className="absolute inset-0 z-20 bg-zinc-950/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center text-white font-bold text-xs">
+                  <div className="px-4 py-2 rounded-full bg-zinc-900/90 border border-zinc-700 backdrop-blur-md flex items-center gap-2 shadow-xl">
+                    <ZoomIn className="w-4 h-4 text-primary" />
+                    <span>Ver imagen completa</span>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div className="p-5 rounded-2xl bg-white dark:bg-zinc-950 border border-zinc-200/80 dark:border-zinc-800 space-y-2">
-              <span className="text-xs font-bold text-primary uppercase tracking-wider block">Crash Main 16"</span>
-              <h4 className="font-bold text-zinc-900 dark:text-white text-base">Zildjian A Custom 16"</h4>
-              <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
-                Ataque brillante, explosión rápida y caída limpia de frecuencias.
-              </p>
+            {/* Cuadrícula de especificaciones de platillos */}
+            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="p-5 rounded-2xl bg-white dark:bg-zinc-950 border border-zinc-200/80 dark:border-zinc-800 space-y-2 flex flex-col justify-center">
+                <span className="text-xs font-bold text-primary uppercase tracking-wider block">Ride 20"</span>
+                <h4 className="font-bold text-zinc-900 dark:text-white text-base">Zildjian Z Custom 20"</h4>
+                <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                  Ping súper definido, campana potente y articulación rítmica destacada.
+                </p>
+              </div>
+
+              <div className="p-5 rounded-2xl bg-white dark:bg-zinc-950 border border-zinc-200/80 dark:border-zinc-800 space-y-2 flex flex-col justify-center">
+                <span className="text-xs font-bold text-primary uppercase tracking-wider block">Crash Main 16"</span>
+                <h4 className="font-bold text-zinc-900 dark:text-white text-base">Zildjian A Custom 16"</h4>
+                <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                  Ataque brillante, explosión rápida y caída limpia de frecuencias.
+                </p>
+              </div>
+
+              <div className="p-5 rounded-2xl bg-white dark:bg-zinc-950 border border-zinc-200/80 dark:border-zinc-800 space-y-2 flex flex-col justify-center">
+                <span className="text-xs font-bold text-primary uppercase tracking-wider block">Crash Dark 18"</span>
+                <h4 className="font-bold text-zinc-900 dark:text-white text-base">Zildjian K Dark Thin 18"</h4>
+                <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                  Complejidad armónica cálida y resonancia oscura de gran musicalidad.
+                </p>
+              </div>
+
+              <div className="p-5 rounded-2xl bg-white dark:bg-zinc-950 border border-zinc-200/80 dark:border-zinc-800 space-y-2 flex flex-col justify-center">
+                <span className="text-xs font-bold text-primary uppercase tracking-wider block">Hi-Hats 14"</span>
+                <h4 className="font-bold text-zinc-900 dark:text-white text-base">Sabian XS20 14"</h4>
+                <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                  Chasquido seco, respuesta directa y articulación nítida de baqueta.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 5. EQUIPAMIENTO DE GRABACIÓN (MICRÓFONOS E INTERFACES) */}
+        <section className="p-8 sm:p-10 rounded-3xl bg-[#f5f5f7] dark:bg-zinc-900/90 border border-zinc-200/80 dark:border-zinc-800 space-y-8 shadow-xs">
+          <div className="space-y-2">
+            <span className="text-xs font-semibold text-primary uppercase tracking-widest block">
+              Cadena de Señal & Captación Pro
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-zinc-900 dark:text-white">
+              Equipamiento de Grabación & Microfonía
+            </h2>
+            <p className="text-zinc-600 dark:text-zinc-400 text-sm max-w-3xl">
+              Grabación multipista con equipamiento de estándar internacional e interfaces de última generación.
+            </p>
+          </div>
+
+          {/* Fotos del equipamiento con lightbox */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* Foto 1: Set de micrófonos */}
+            <div
+              onClick={() => openEquipmentLightbox(0)}
+              className="relative h-64 sm:h-72 rounded-2xl overflow-hidden bg-[#e8e8ed] dark:bg-zinc-950 border border-zinc-300/80 dark:border-zinc-800 flex items-center justify-center cursor-pointer group/img shadow-sm"
+            >
+              <img
+                src={hearoMicrofonosImg}
+                alt=""
+                className="absolute inset-0 w-full h-full object-cover blur-xl opacity-20 pointer-events-none"
+              />
+              <img
+                src={hearoMicrofonosImg}
+                alt="Set de micrófonos de estudio"
+                className="relative z-10 w-full h-full object-cover transition-all duration-300 group-hover/img:scale-103"
+              />
+              <div className="absolute top-3 left-3 z-20">
+                <span className="px-3 py-1 rounded-full bg-zinc-950/75 backdrop-blur-md text-primary font-bold text-[11px] uppercase tracking-wider border border-zinc-800/80 shadow-md">
+                  Set de Micrófonos
+                </span>
+              </div>
+              <div className="absolute inset-0 z-20 bg-zinc-950/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center text-white font-bold text-xs">
+                <div className="px-4 py-2 rounded-full bg-zinc-900/90 border border-zinc-700 backdrop-blur-md flex items-center gap-2 shadow-xl">
+                  <ZoomIn className="w-4 h-4 text-primary" />
+                  <span>Ver imagen completa</span>
+                </div>
+              </div>
             </div>
 
-            <div className="p-5 rounded-2xl bg-white dark:bg-zinc-950 border border-zinc-200/80 dark:border-zinc-800 space-y-2">
-              <span className="text-xs font-bold text-primary uppercase tracking-wider block">Crash Dark 18"</span>
-              <h4 className="font-bold text-zinc-900 dark:text-white text-base">Zildjian K Dark Thin 18"</h4>
-              <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
-                Complejidad armónica cálida y resonancia oscura de gran musicalidad.
-              </p>
+            {/* Foto 2: Microfonía en Snare */}
+            <div
+              onClick={() => openEquipmentLightbox(1)}
+              className="relative h-64 sm:h-72 rounded-2xl overflow-hidden bg-[#e8e8ed] dark:bg-zinc-950 border border-zinc-300/80 dark:border-zinc-800 flex items-center justify-center cursor-pointer group/img shadow-sm"
+            >
+              <img
+                src={microSnareImg}
+                alt=""
+                className="absolute inset-0 w-full h-full object-cover blur-xl opacity-20 pointer-events-none"
+              />
+              <img
+                src={microSnareImg}
+                alt="Microfonía de detalle en Tambor / Snare"
+                className="relative z-10 w-full h-full object-cover transition-all duration-300 group-hover/img:scale-103"
+              />
+              <div className="absolute top-3 left-3 z-20">
+                <span className="px-3 py-1 rounded-full bg-zinc-950/75 backdrop-blur-md text-primary font-bold text-[11px] uppercase tracking-wider border border-zinc-800/80 shadow-md">
+                  Detalle de Captación en Snare
+                </span>
+              </div>
+              <div className="absolute inset-0 z-20 bg-zinc-950/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center text-white font-bold text-xs">
+                <div className="px-4 py-2 rounded-full bg-zinc-900/90 border border-zinc-700 backdrop-blur-md flex items-center gap-2 shadow-xl">
+                  <ZoomIn className="w-4 h-4 text-primary" />
+                  <span>Ver imagen completa</span>
+                </div>
+              </div>
             </div>
+          </div>
 
-            <div className="p-5 rounded-2xl bg-white dark:bg-zinc-950 border border-zinc-200/80 dark:border-zinc-800 space-y-2">
-              <span className="text-xs font-bold text-primary uppercase tracking-wider block">Hi-Hats 14"</span>
-              <h4 className="font-bold text-zinc-900 dark:text-white text-base">Sabian XS20 14"</h4>
-              <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
-                Chasquido seco, respuesta directa y articulación nítida de baqueta.
-              </p>
+          {/* Categorías de Micrófonos & Interfaces */}
+          <div className="space-y-4 pt-2">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+              {/* 1. Kick Drums */}
+              <div className="p-5 rounded-2xl bg-white dark:bg-zinc-950 border border-zinc-200/80 dark:border-zinc-800 space-y-3">
+                <div className="flex items-center justify-between border-b border-zinc-100 dark:border-zinc-800/80 pb-2">
+                  <span className="text-xs font-extrabold text-primary uppercase tracking-wider">
+                    Kick Drums
+                  </span>
+                </div>
+                <div className="space-y-3">
+                  <div className="space-y-0.5">
+                    <h4 className="font-bold text-zinc-900 dark:text-white text-sm">
+                      AKG D112
+                    </h4>
+                    <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                      Captación de sub-graves profundos e impacto contundente (Kick Out).
+                    </p>
+                  </div>
+                  <div className="space-y-0.5 pt-2 border-t border-zinc-100 dark:border-zinc-900">
+                    <h4 className="font-bold text-zinc-900 dark:text-white text-sm">
+                      Shure Beta 91A
+                    </h4>
+                    <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                      Condensador de superficie para ataque rápido y click definido (Kick In).
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* 2. Snare / Toms */}
+              <div className="p-5 rounded-2xl bg-white dark:bg-zinc-950 border border-zinc-200/80 dark:border-zinc-800 space-y-3">
+                <div className="flex items-center justify-between border-b border-zinc-100 dark:border-zinc-800/80 pb-2">
+                  <span className="text-xs font-extrabold text-primary uppercase tracking-wider">
+                    Snare / Toms
+                  </span>
+                </div>
+                <div className="space-y-3">
+                  <div className="space-y-0.5">
+                    <h4 className="font-bold text-zinc-900 dark:text-white text-sm">
+                      Shure SM57
+                    </h4>
+                    <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                      Estándar dinámico de ataque preciso, cuerpo contundente y definición.
+                    </p>
+                  </div>
+                  <div className="space-y-0.5 pt-2 border-t border-zinc-100 dark:border-zinc-900">
+                    <h4 className="font-bold text-zinc-900 dark:text-white text-sm">
+                      Sennheiser e609 (Snare Bottom)
+                    </h4>
+                    <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                      Diseño plano supercardioide de ataque rápido, ideal para entorchado y rechazo lateral.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* 3. Ambientes y Overheads */}
+              <div className="p-5 rounded-2xl bg-white dark:bg-zinc-950 border border-zinc-200/80 dark:border-zinc-800 space-y-3">
+                <div className="flex items-center justify-between border-b border-zinc-100 dark:border-zinc-800/80 pb-2">
+                  <span className="text-xs font-extrabold text-primary uppercase tracking-wider">
+                    Ambientes y Overheads
+                  </span>
+                </div>
+                <div className="space-y-3">
+                  <div className="space-y-0.5">
+                    <h4 className="font-bold text-zinc-900 dark:text-white text-sm">
+                      AKG P220
+                    </h4>
+                    <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                      Condensador de diafragma grande para tomas de ambiente y acústica de sala (Room).
+                    </p>
+                  </div>
+                  <div className="space-y-0.5 pt-2 border-t border-zinc-100 dark:border-zinc-900">
+                    <h4 className="font-bold text-zinc-900 dark:text-white text-sm">
+                      Rodes M5
+                    </h4>
+                    <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                      Par estéreo calibrado de condensadores para captura transparente de platillos e hi-hat.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* 4. Interfaces */}
+              <div className="p-5 rounded-2xl bg-white dark:bg-zinc-950 border border-primary/40 dark:border-primary/40 space-y-3 relative overflow-hidden group">
+                <div className="absolute top-0 right-0 w-28 h-28 bg-primary/10 rounded-full blur-2xl pointer-events-none group-hover:bg-primary/20 transition-all" />
+                <div className="flex items-center justify-between border-b border-zinc-100 dark:border-zinc-800/80 pb-2 relative z-10">
+                  <span className="text-xs font-extrabold text-primary uppercase tracking-wider">
+                    Interfaces & Conversión
+                  </span>
+                </div>
+                <div className="space-y-1.5 relative z-10">
+                  <h4 className="font-bold text-zinc-900 dark:text-white text-base">
+                    Focusrite 20i20 (4ta Gen)
+                  </h4>
+                  <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                    Interface de última generación con preamplificadores ultralimpios de ultra-bajo ruido, amplio rango dinámico y conversión de alta fidelidad 24-bit / 192kHz multicanal.
+                  </p>
+                </div>
+              </div>
+
             </div>
+          </div>
+        </section>
+
+        {/* 8. FAQ Accordion */}
+        <section className="space-y-6 max-w-4xl mx-auto">
+          <div className="text-center space-y-2">
+            <span className="text-xs font-semibold text-primary uppercase tracking-widest">
+              Preguntas Frecuentes
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-white flex items-center justify-center gap-2">
+              <HelpCircle className="w-5 h-5 text-primary" />
+              <span>Dudas sobre el servicio de Baterías Remotas</span>
+            </h2>
+          </div>
+
+          <div className="space-y-4">
+            {FAQS.map((faq, idx) => {
+              const isOpen = openFaqIndex === idx;
+              return (
+                <div
+                  key={idx}
+                  className="rounded-3xl bg-[#f5f5f7] dark:bg-zinc-900/90 border border-zinc-200/80 dark:border-zinc-800 overflow-hidden transition-all duration-200"
+                >
+                  <button
+                    onClick={() => toggleFaq(idx)}
+                    className="w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-zinc-900 dark:text-white text-base sm:text-lg cursor-pointer select-none"
+                  >
+                    <span>{faq.question}</span>
+                    <div className={`p-2 rounded-full bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700/80 transition-transform duration-300 ${isOpen ? 'rotate-180 text-primary' : 'text-zinc-500'}`}>
+                      <ChevronDown className="w-4 h-4" />
+                    </div>
+                  </button>
+
+                  {isOpen && (
+                    <div className="px-6 pb-6 pt-0 border-t border-zinc-200/60 dark:border-zinc-800/80">
+                      <p className="text-zinc-600 dark:text-zinc-300 text-sm sm:text-base leading-relaxed whitespace-pre-line pt-4 font-normal">
+                        {faq.answer}
+                      </p>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </section>
 
@@ -593,54 +937,7 @@ export const RemoteDrumsServiceDetail: React.FC<RemoteDrumsServiceDetailProps> =
           </div>
         </section>
 
-        {/* 6. Modalidad de Trabajo (Visual 4-Step Process) */}
-        <section className="space-y-8">
-          <div className="text-center max-w-3xl mx-auto space-y-3">
-            <span className="text-xs font-semibold text-primary tracking-widest uppercase">
-              Paso a Paso
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-900 dark:text-white">
-              Modalidad de Trabajo
-            </h2>
-            <p className="text-zinc-600 dark:text-zinc-400 text-base sm:text-lg">
-              Un flujo sencillo y acompañado en cada etapa de la producción.
-            </p>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            <div className="p-6 rounded-3xl bg-[#f5f5f7] dark:bg-zinc-900/90 border border-zinc-200/80 dark:border-zinc-800 space-y-3 relative group">
-              <span className="w-8 h-8 rounded-full bg-primary text-zinc-950 font-bold text-xs flex items-center justify-center">1</span>
-              <h3 className="font-bold text-zinc-900 dark:text-white text-base">1. Envío de Pistas & BPM</h3>
-              <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed font-normal">
-                Me envías las pistas de tus canciones junto con el tempo (BPM). Si tenés una programación de batería o alguna referencia sonora, podés incluirla.
-              </p>
-            </div>
-
-            <div className="p-6 rounded-3xl bg-[#f5f5f7] dark:bg-zinc-900/90 border border-zinc-200/80 dark:border-zinc-800 space-y-3 relative group">
-              <span className="w-8 h-8 rounded-full bg-primary text-zinc-950 font-bold text-xs flex items-center justify-center">2</span>
-              <h3 className="font-bold text-zinc-900 dark:text-white text-base">2. Co-creación & Arreglos</h3>
-              <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed font-normal">
-                En caso de que todavía no tengas una idea definida, trabajamos juntos hasta encontrar la interpretación que mejor se adapte al estilo de tu canción.
-              </p>
-            </div>
-
-            <div className="p-6 rounded-3xl bg-[#f5f5f7] dark:bg-zinc-900/90 border border-zinc-200/80 dark:border-zinc-800 space-y-3 relative group">
-              <span className="w-8 h-8 rounded-full bg-primary text-zinc-950 font-bold text-xs flex items-center justify-center">3</span>
-              <h3 className="font-bold text-zinc-900 dark:text-white text-base">3. Muestras MP3 de Revisión</h3>
-              <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed font-normal">
-                Durante el proceso de grabación te envío muestras rápidas en MP3 para que escuches y confirmes cada toma antes de la entrega final.
-              </p>
-            </div>
-
-            <div className="p-6 rounded-3xl bg-[#f5f5f7] dark:bg-zinc-900/90 border border-zinc-200/80 dark:border-zinc-800 space-y-3 relative group">
-              <span className="w-8 h-8 rounded-full bg-primary text-zinc-950 font-bold text-xs flex items-center justify-center">4</span>
-              <h3 className="font-bold text-zinc-900 dark:text-white text-base">4. Entrega Multitrack 8-10 WAV</h3>
-              <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed font-normal">
-                Una vez finalizada y aprobada la grabación, te envío los tracks por separado en formato WAV (24-bit / 48kHz - 96kHz), listos para incorporar a tu DAW.
-              </p>
-            </div>
-          </div>
-        </section>
 
         {/* 7. Testimonials & Client Reviews */}
         <section className="space-y-6">
@@ -682,48 +979,7 @@ export const RemoteDrumsServiceDetail: React.FC<RemoteDrumsServiceDetailProps> =
           </div>
         </section>
 
-        {/* 8. FAQ Accordion */}
-        <section className="space-y-6 max-w-4xl mx-auto">
-          <div className="text-center space-y-2">
-            <span className="text-xs font-semibold text-primary uppercase tracking-widest">
-              Preguntas Frecuentes
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-white flex items-center justify-center gap-2">
-              <HelpCircle className="w-5 h-5 text-primary" />
-              <span>Dudas sobre el servicio de Baterías Remotas</span>
-            </h2>
-          </div>
 
-          <div className="space-y-4">
-            {FAQS.map((faq, idx) => {
-              const isOpen = openFaqIndex === idx;
-              return (
-                <div
-                  key={idx}
-                  className="rounded-3xl bg-[#f5f5f7] dark:bg-zinc-900/90 border border-zinc-200/80 dark:border-zinc-800 overflow-hidden transition-all duration-200"
-                >
-                  <button
-                    onClick={() => toggleFaq(idx)}
-                    className="w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-zinc-900 dark:text-white text-base sm:text-lg cursor-pointer select-none"
-                  >
-                    <span>{faq.question}</span>
-                    <div className={`p-2 rounded-full bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700/80 transition-transform duration-300 ${isOpen ? 'rotate-180 text-primary' : 'text-zinc-500'}`}>
-                      <ChevronDown className="w-4 h-4" />
-                    </div>
-                  </button>
-
-                  {isOpen && (
-                    <div className="px-6 pb-6 pt-0 border-t border-zinc-200/60 dark:border-zinc-800/80">
-                      <p className="text-zinc-600 dark:text-zinc-300 text-sm sm:text-base leading-relaxed whitespace-pre-line pt-4 font-normal">
-                        {faq.answer}
-                      </p>
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        </section>
 
         {/* 9. Final CTA Banner */}
         <section className="p-10 rounded-3xl bg-zinc-950 text-white border border-zinc-800 text-center space-y-6 shadow-2xl relative overflow-hidden">
@@ -733,10 +989,10 @@ export const RemoteDrumsServiceDetail: React.FC<RemoteDrumsServiceDetailProps> =
               ¿Listo para empezar?
             </span>
             <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
-              Dale la batería orgánica y el ponche que tu producción merece
+              Encontrá la bateria ideal para tus producción
             </h2>
             <p className="text-zinc-400 text-sm sm:text-base">
-              Hablemos sobre tu proyecto. Recibirás respuesta directa y asesoría en menos de 12 horas.
+              Hablemos sobre tu proyecto. Recibirás una respuesta directa y personal.
             </p>
             <div className="pt-2">
               <button
