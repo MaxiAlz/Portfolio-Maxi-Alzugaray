@@ -67,7 +67,7 @@ const FAQS = [
   },
   {
     question: '¿Puedes pedir variaciones de un mismo tema?',
-    answer: 'Si, claro. Cuando nos comuniquemos pueden indicar las ideas que tienes en mente para la cancion, puedo grabar versiones diferentes con distintos grooves o fills para que luego elijas la que mas te guste o peudas armar un blend de todo el material que te envio.'
+    answer: 'Si, claro. Cuando nos comuniquemos pueden indicar las ideas que tienes en mente para la cancion, puedo grabar versiones diferentes con distintos grooves o fills para que luego elijas la que mas te guste o puedas armar un blend de todo el material que te envio.'
   },
   {
     question: '¿Cuánto tiempo demoran las grabaciones?',
@@ -75,7 +75,7 @@ const FAQS = [
   },
   {
     question: 'Mi Demo no tiene un tiempo especifico, ¿Puedes grabar igual?',
-    answer: 'Si, claro. Hoy en dia muchos demos que son producidor con IA o en formatos que no tiene un BPM especifico. No te preocupes, lo podemos trabajar igual, puedo editar ese demo a una grilla o grabar sobre la misma pista, vos elegis.'
+    answer: 'Si, claro. Hoy en dia muchos demos que son producidor con IA o en otros formatos que no tiene un BPM especifico. No te preocupes, lo podemos trabajar igual, puedo editar ese demo a una grilla o grabar sobre la misma pista, vos elegis.'
   },
 ];
 

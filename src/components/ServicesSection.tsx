@@ -11,8 +11,6 @@ interface ServicesSectionProps {
 
 export const ServicesSection: React.FC<ServicesSectionProps> = ({
   services,
-  currency,
-  onSelectServiceForQuote
 }) => {
   const navigate = useNavigate();
 

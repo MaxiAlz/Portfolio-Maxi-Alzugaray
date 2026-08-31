@@ -1,5 +1,15 @@
 import { Service, AudioTrack, SamplePack, StoreProduct, BlogArticle, Testimonial, GearItem, QuoteRequest } from '../types';
 
+
+
+
+import bateriaRemotaImg from '../../assets/images/hearos/hearo_palo.jpg';
+import hearoEstudioImg from '../../assets/images/hearos/hearo_estudio.jpg';
+import hearoMicrofonosImg from '../../assets/images/hearos/hearo_microfonos.JPG';
+import mapexImg1 from '../../assets/images/baterias/bateria_mapex_promars_1.jpeg';
+import sonorImg1 from '../../assets/images/baterias/bateria_sonor_01.jpeg';
+import platillosPortadaImg from '../../assets/images/baterias/platillos_portada.JPG';
+
 export const INITIAL_SERVICES: Service[] = [
   {
     id: 'remote-drums',
@@ -9,7 +19,7 @@ export const INITIAL_SERVICES: Service[] = [
 
 A través de un flujo de trabajo 100% colaborativo, recibís entre 8 y 10 canales en formato WAV (24-bit / 96kHz) listos para arrastrar a tu DAW y comenzar la mezcla. Adaptamos la configuración de cuerpo (madera o metal) y la microfonía a géneros como Rock, Pop, Indie o Folklore.`,
     iconName: 'Drum',
-    image: 'https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?auto=format&fit=crop&q=80&w=1200',
+    image: bateriaRemotaImg,
     basePriceUSD: 120,
     deliverables: [
       '8 a 10 Canales WAV en alta definición (24-bit / 96kHz)',
@@ -51,7 +61,7 @@ A través de un flujo de trabajo 100% colaborativo, recibís entre 8 y 10 canale
     subtitle: 'Balance, potencia y claridad',
     description: 'Tratamiento híbrido y analógico para llevar tus canciones al nivel de producciones comerciales competitivas en plataformas digitales.',
     iconName: 'Sliders',
-    image: 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&q=80&w=800',
+    image: hearoEstudioImg,
     basePriceUSD: 180,
     deliverables: [
       'Mezcla estéreo + Versión instrumental',

@@ -55,8 +55,11 @@ export default function App() {
     if (saved) {
       try {
         const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed) && parsed.length === INITIAL_SERVICES.length && parsed[0]?.image) {
-          return parsed;
+        if (Array.isArray(parsed) && parsed.length === INITIAL_SERVICES.length) {
+          return parsed.map((svc: Service, idx: number) => ({
+            ...svc,
+            image: INITIAL_SERVICES[idx]?.image || svc.image
+          }));
         }
       } catch (e) { }
     }
