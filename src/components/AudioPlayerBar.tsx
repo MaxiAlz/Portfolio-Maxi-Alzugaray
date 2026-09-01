@@ -61,7 +61,7 @@ export const AudioPlayerBar: React.FC<AudioPlayerBarProps> = ({
 
         {/* Track Info */}
         <div className="flex items-center gap-3 min-w-0 max-w-70 sm:max-w-xs">
-          <div className="w-10 h-10 rounded-xl bg-zinc-900 border border-zinc-200 dark:border-zinc-800 overflow-hidden flex-shrink-0 relative group">
+          <div className="w-10 h-10 rounded-xl bg-zinc-900 border border-zinc-200 dark:border-zinc-800 overflow-hidden shrink-0 relative group">
             <img
               src={currentTrack.coverImage}
               alt={currentTrack.title}
@@ -109,8 +109,8 @@ export const AudioPlayerBar: React.FC<AudioPlayerBarProps> = ({
                   key={btn.key}
                   onClick={() => onSelectStem && onSelectStem(btn.key)}
                   className={`px-2 py-0.5 rounded-full text-[10px] font-semibold transition-all cursor-pointer ${currentStemKey === btn.key
-                      ? 'bg-primary text-zinc-950 shadow-xs font-bold'
-                      : 'text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white'
+                    ? 'bg-primary text-zinc-950 shadow-xs font-bold'
+                    : 'text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white'
                     }`}
                   title={STEM_LABELS[btn.key]?.description}
                 >
