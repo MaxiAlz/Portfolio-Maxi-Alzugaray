@@ -1,0 +1,32 @@
+ESTRUCTURA DE ARCHIVOS MP3 PARA TUS CANCIONES
+=================================================
+
+Coloca aquí los archivos .mp3 de cada canción respetando las siguientes carpetas y nombres de archivo 
+(o modifica las rutas en src/data/initialData.ts):
+
+Carpeta: public/audio/track-1/
+- 1-demo-cancion.mp3
+- 2-demo-drums.mp3
+- 3-recorded-drums.mp3
+- 4-cancion-con-bateria.mp3
+
+Carpeta: public/audio/track-2/
+- 1-demo-cancion.mp3
+- 2-demo-drums.mp3
+- 3-recorded-drums.mp3
+- 4-cancion-con-bateria.mp3
+
+Carpeta: public/audio/track-3/
+- 1-demo-cancion.mp3
+- 2-demo-drums.mp3
+- 3-recorded-drums.mp3
+- 4-cancion-con-bateria.mp3
+
+Carpeta: public/audio/track-4/
+- 1-demo-cancion.mp3
+- 2-demo-drums.mp3
+- 3-recorded-drums.mp3
+- 4-cancion-con-bateria.mp3
+
+Nota: Mientras no subas los archivos .mp3, el sistema usará un sintetizador automático de audio para la demostración. 
+En cuanto pegues tus archivos .mp3, la página reproducirá tus audios reales de forma transparente y sincronizada.

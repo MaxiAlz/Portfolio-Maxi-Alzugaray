@@ -6,8 +6,13 @@ import { Service, AudioTrack, SamplePack, StoreProduct, BlogArticle, Testimonial
 import bateriaRemotaImg from '../../assets/images/hearos/hearo_palo.jpg';
 import hearoEstudioImg from '../../assets/images/hearos/hearo_estudio.jpg';
 import hearoMicrofonosImg from '../../assets/images/hearos/hearo_microfonos.JPG';
+import microSnareImg from '../../assets/images/hearos/micro_en_snare.png';
 import mapexImg1 from '../../assets/images/baterias/bateria_mapex_promars_1.jpeg';
+import mapexImg2 from '../../assets/images/baterias/bateria_mapex_promars_2.jpeg';
+import mapexImg3 from '../../assets/images/baterias/bateria_mapex_promars_3.jpeg';
 import sonorImg1 from '../../assets/images/baterias/bateria_sonor_01.jpeg';
+import sonorImg2 from '../../assets/images/baterias/bateria_sonor_2.jpeg';
+import sonorImg3 from '../../assets/images/baterias/bateria_sonor_3.jpeg';
 import platillosPortadaImg from '../../assets/images/baterias/platillos_portada.JPG';
 
 export const INITIAL_SERVICES: Service[] = [
@@ -131,18 +136,27 @@ A través de un flujo de trabajo 100% colaborativo, recibís entre 8 y 10 canale
 
 export const INITIAL_AUDIO_TRACKS: AudioTrack[] = [
   {
-    id: 'track-1',
-    title: 'Heavy Groove & Punchy Snare',
-    artist: 'Maxi Alzugaray - Drum Session',
-    genre: 'Metal',
+    id: 'big-drums-tracks-1',
+    title: 'Indie Pop Groove & Big Snare',
+    artist: 'Drum Session',
+    genre: 'Pop / Indie',
     type: 'portfolio',
-    durationSeconds: 45,
-    bpm: 140,
-    audioFreq: 220,
-    drumStyle: 'Double Bass, Tight Gated Snare, Heavy Cymbals',
-    coverImage: 'https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?auto=format&fit=crop&q=80&w=600',
-    hasABComparison: true
+    durationSeconds: 270,
+    bpm: 85,
+    drumStyle: 'Bateria con tambor grande y espaciado, bombo corto y seco para generar contrastes. Se utilizo una afinacion de toms grabes y profundos, para los platos utilice un Hihat de 16" buscando un sonido grande y platos Zidjian A Custom 16" y Zidjian K Dark Crash 18" ',
+    coverImage: mapexImg1,
+    galleryImages: [mapexImg1, mapexImg2, mapexImg3, hearoMicrofonosImg, microSnareImg, platillosPortadaImg],
+    videoUrl: 'https://www.youtube.com/shorts/7Wx4SS7hBJ8',
+    hasABComparison: true,
+    defaultStem: 'finalSong',
+    stems: {
+      // demoTrack: '/audio/big-drums-tracks-1/1-demo-cancion.mp3',
+      // demoDrums: '/audio/big-drums-tracks-1/2-demo-drums.mp3',
+      recordedDrums: '/audio/big-drums-tracks-1/3-recorded-drums.mp3',
+      finalSong: '/audio/big-drums-tracks-1/4-cancion-con-bateria.mp3'
+    }
   },
+
   {
     id: 'track-2',
     title: 'Modern Rock Driving Beat',
@@ -151,10 +165,17 @@ export const INITIAL_AUDIO_TRACKS: AudioTrack[] = [
     type: 'portfolio',
     durationSeconds: 52,
     bpm: 124,
-    audioFreq: 180,
     drumStyle: 'Organic Room Ambience, Ludwig Snare 6.5, Thick Kick',
-    coverImage: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&q=80&w=600',
-    hasABComparison: true
+    coverImage: sonorImg1,
+    galleryImages: [sonorImg1, sonorImg2, sonorImg3, hearoEstudioImg],
+    hasABComparison: true,
+    defaultStem: 'finalSong',
+    stems: {
+      demoTrack: '/audio/track-2/1-demo-cancion.mp3',
+      demoDrums: '/audio/track-2/2-demo-drums.mp3',
+      recordedDrums: '/audio/track-2/3-recorded-drums.mp3',
+      finalSong: '/audio/track-2/4-cancion-con-bateria.mp3'
+    }
   },
   {
     id: 'track-3',
@@ -164,10 +185,17 @@ export const INITIAL_AUDIO_TRACKS: AudioTrack[] = [
     type: 'portfolio',
     durationSeconds: 40,
     bpm: 108,
-    audioFreq: 150,
     drumStyle: 'Damped Warm Shells, Soft Ribbon Mics, Clean Hi-Hats',
-    coverImage: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&q=80&w=600',
-    hasABComparison: false
+    coverImage: platillosPortadaImg,
+    galleryImages: [platillosPortadaImg, hearoEstudioImg, microSnareImg],
+    hasABComparison: false,
+    defaultStem: 'finalSong',
+    stems: {
+      demoTrack: '/audio/track-3/1-demo-cancion.mp3',
+      demoDrums: '/audio/track-3/2-demo-drums.mp3',
+      recordedDrums: '/audio/track-3/3-recorded-drums.mp3',
+      finalSong: '/audio/track-3/4-cancion-con-bateria.mp3'
+    }
   },
   {
     id: 'track-4',
@@ -177,10 +205,17 @@ export const INITIAL_AUDIO_TRACKS: AudioTrack[] = [
     type: 'portfolio',
     durationSeconds: 60,
     bpm: 132,
-    audioFreq: 250,
     drumStyle: 'Dynamic Ghost Notes, Fast Cymbal Chokes, Wide Room',
-    coverImage: 'https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&q=80&w=600',
-    hasABComparison: true
+    coverImage: bateriaRemotaImg,
+    galleryImages: [bateriaRemotaImg, hearoMicrofonosImg, mapexImg2],
+    hasABComparison: true,
+    defaultStem: 'finalSong',
+    stems: {
+      demoTrack: '/audio/track-4/1-demo-cancion.mp3',
+      demoDrums: '/audio/track-4/2-demo-drums.mp3',
+      recordedDrums: '/audio/track-4/3-recorded-drums.mp3',
+      finalSong: '/audio/track-4/4-cancion-con-bateria.mp3'
+    }
   }
 ];
 

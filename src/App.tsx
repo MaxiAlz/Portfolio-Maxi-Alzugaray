@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import {
   Currency,
   AudioTrack,
+  StemKey,
   Service,
   SamplePack,
   StoreProduct,
@@ -88,6 +89,7 @@ export default function App() {
 
   // Audio Player State
   const [currentTrack, setCurrentTrack] = useState<AudioTrack | null>(null);
+  const [currentStemKey, setCurrentStemKey] = useState<StemKey>('finalSong');
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [elapsedTime, setElapsedTime] = useState<number>(0);
   const [volume, setVolume] = useState<number>(0.8);
@@ -117,20 +119,47 @@ export default function App() {
   }, [quotes]);
 
   // Audio engine player toggle
-  const handleTogglePlay = (track?: AudioTrack) => {
+  const handleTogglePlay = (track?: AudioTrack, stemKey?: StemKey) => {
     const targetTrack = track || currentTrack || INITIAL_AUDIO_TRACKS[0];
+    const targetStem = stemKey || (track ? (track.defaultStem || 'finalSong') : currentStemKey);
 
-    if (currentTrack?.id === targetTrack.id && isPlaying) {
+    if (currentTrack?.id === targetTrack.id && currentStemKey === targetStem && isPlaying) {
       audioEngine.pause();
       setIsPlaying(false);
     } else {
       setCurrentTrack(targetTrack);
+      setCurrentStemKey(targetStem);
       setIsPlaying(true);
+      const audioUrl = targetTrack.stems?.[targetStem];
       audioEngine.playTrack(
         targetTrack.genre,
         targetTrack.bpm,
+        audioUrl,
         (time) => setElapsedTime(time)
       );
+    }
+  };
+
+  const handleSelectStem = (trackOrStem: AudioTrack | StemKey, optionalStemKey?: StemKey) => {
+    let targetTrack: AudioTrack;
+    let targetStem: StemKey;
+
+    if (typeof trackOrStem === 'string') {
+      if (!currentTrack) return;
+      targetTrack = currentTrack;
+      targetStem = trackOrStem;
+    } else {
+      targetTrack = trackOrStem;
+      targetStem = optionalStemKey || targetTrack.defaultStem || 'finalSong';
+    }
+
+    const audioUrl = targetTrack.stems?.[targetStem];
+
+    if (currentTrack?.id === targetTrack.id && isPlaying) {
+      setCurrentStemKey(targetStem);
+      audioEngine.switchStemSource(audioUrl);
+    } else {
+      handleTogglePlay(targetTrack, targetStem);
     }
   };
 
@@ -302,8 +331,10 @@ export default function App() {
                 element={
                   <PortfolioPage
                     currentTrack={currentTrack}
+                    currentStemKey={currentStemKey}
                     isPlaying={isPlaying}
                     onTogglePlay={handleTogglePlay}
+                    onSelectStem={handleSelectStem}
                   />
                 }
               />
@@ -332,8 +363,10 @@ export default function App() {
         {/* Persistent Global Floating Audio Player Bar */}
         <AudioPlayerBar
           currentTrack={currentTrack}
+          currentStemKey={currentStemKey}
           isPlaying={isPlaying}
           onTogglePlay={() => handleTogglePlay()}
+          onSelectStem={(stemKey) => handleSelectStem(stemKey)}
           onClosePlayer={handleClosePlayer}
           elapsedTime={elapsedTime}
           volume={volume}

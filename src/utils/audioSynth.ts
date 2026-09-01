@@ -12,6 +12,8 @@ class AudioEngine {
   private gainNode: GainNode | null = null;
   private isMuted: boolean = false;
   private volume: number = 0.8;
+  private audioElement: HTMLAudioElement | null = null;
+  private isUsingMp3: boolean = false;
 
   private initContext() {
     if (!this.ctx) {
@@ -31,6 +33,9 @@ class AudioEngine {
     if (this.gainNode && this.ctx) {
       this.gainNode.gain.setValueAtTime(this.isMuted ? 0 : vol, this.ctx.currentTime);
     }
+    if (this.audioElement) {
+      this.audioElement.volume = this.isMuted ? 0 : vol;
+    }
   }
 
   public toggleMute(): boolean {
@@ -39,8 +44,7 @@ class AudioEngine {
     return this.isMuted;
   }
 
-  public playTrack(genre: string = 'Rock', bpm: number = 120, onTimeUpdate?: (time: number) => void) {
-    this.initContext();
+  public playTrack(genre: string = 'Rock', bpm: number = 120, audioUrl?: string, onTimeUpdate?: (time: number) => void) {
     this.stop();
 
     this.isPlaying = true;
@@ -48,8 +52,55 @@ class AudioEngine {
     this.currentGenre = genre;
     this.onTimeUpdateCallback = onTimeUpdate || null;
     this.elapsedTime = 0;
-    this.currentStep = 0;
 
+    if (audioUrl) {
+      this.isUsingMp3 = true;
+      if (!this.audioElement) {
+        this.audioElement = new Audio();
+      }
+      this.audioElement.src = audioUrl;
+      this.audioElement.volume = this.isMuted ? 0 : this.volume;
+      this.audioElement.ontimeupdate = () => {
+        if (this.audioElement) {
+          this.elapsedTime = this.audioElement.currentTime;
+          if (this.onTimeUpdateCallback) {
+            this.onTimeUpdateCallback(this.elapsedTime);
+          }
+        }
+      };
+      this.audioElement.onended = () => {
+        this.stop();
+      };
+      this.audioElement.onerror = () => {
+        // Fallback to synth if MP3 fails to load
+        this.isUsingMp3 = false;
+        this.startSynthPlayback();
+      };
+      this.audioElement.play().catch(() => {
+        // Fallback if browser blocks autoplay or file not found
+        this.isUsingMp3 = false;
+        this.startSynthPlayback();
+      });
+    } else {
+      this.isUsingMp3 = false;
+      this.startSynthPlayback();
+    }
+  }
+
+  public switchStemSource(newAudioUrl?: string) {
+    if (!newAudioUrl || !this.isPlaying) return;
+
+    if (this.audioElement && this.isUsingMp3) {
+      const currentPos = this.audioElement.currentTime;
+      this.audioElement.src = newAudioUrl;
+      this.audioElement.currentTime = currentPos;
+      this.audioElement.play().catch(() => {});
+    }
+  }
+
+  private startSynthPlayback() {
+    this.initContext();
+    this.currentStep = 0;
     const stepDuration = (60 / this.bpm) / 4; // 16th notes
 
     this.intervalId = window.setInterval(() => {
@@ -70,6 +121,10 @@ class AudioEngine {
       clearInterval(this.intervalId);
       this.intervalId = null;
     }
+    if (this.audioElement) {
+      this.audioElement.pause();
+      this.audioElement.currentTime = 0;
+    }
     this.elapsedTime = 0;
   }
 
@@ -79,11 +134,19 @@ class AudioEngine {
       clearInterval(this.intervalId);
       this.intervalId = null;
     }
+    if (this.audioElement) {
+      this.audioElement.pause();
+    }
   }
 
   public resume() {
-    if (!this.isPlaying && this.currentGenre) {
-      this.playTrack(this.currentGenre, this.bpm, this.onTimeUpdateCallback || undefined);
+    if (!this.isPlaying) {
+      this.isPlaying = true;
+      if (this.audioElement && this.isUsingMp3) {
+        this.audioElement.play().catch(() => {});
+      } else if (this.currentGenre) {
+        this.startSynthPlayback();
+      }
     }
   }
 

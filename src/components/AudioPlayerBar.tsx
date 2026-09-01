@@ -1,11 +1,13 @@
 import React from 'react';
 import { Play, Pause, Volume2, VolumeX, Download, Disc, X } from 'lucide-react';
-import { AudioTrack } from '../types';
+import { AudioTrack, StemKey, STEM_LABELS } from '../types';
 
 interface AudioPlayerBarProps {
   currentTrack: AudioTrack | null;
+  currentStemKey?: StemKey;
   isPlaying: boolean;
   onTogglePlay: () => void;
+  onSelectStem?: (stemKey: StemKey) => void;
   onClosePlayer: () => void;
   elapsedTime: number;
   volume: number;
@@ -14,10 +16,19 @@ interface AudioPlayerBarProps {
   onToggleMute: () => void;
 }
 
+const STEM_BUTTONS: { key: StemKey; label: string }[] = [
+  { key: 'demoTrack', label: '1. Demo' },
+  { key: 'demoDrums', label: '2. Drums Demo' },
+  { key: 'recordedDrums', label: '3. Recorded Drums' },
+  { key: 'finalSong', label: '4. Mezcla Final' }
+];
+
 export const AudioPlayerBar: React.FC<AudioPlayerBarProps> = ({
   currentTrack,
+  currentStemKey = 'finalSong',
   isPlaying,
   onTogglePlay,
+  onSelectStem,
   onClosePlayer,
   elapsedTime,
   volume,
@@ -37,7 +48,7 @@ export const AudioPlayerBar: React.FC<AudioPlayerBarProps> = ({
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 bg-white/95 dark:bg-zinc-950/95 border-t border-zinc-200/80 dark:border-zinc-800 text-zinc-900 dark:text-zinc-100 shadow-xl backdrop-blur-xl transition-all duration-200">
-      
+
       {/* Top Progress Bar */}
       <div className="w-full bg-zinc-200 dark:bg-zinc-800 h-1 cursor-pointer relative group">
         <div
@@ -46,10 +57,10 @@ export const AudioPlayerBar: React.FC<AudioPlayerBarProps> = ({
         />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-2.5 flex items-center justify-between gap-4">
-        
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-2 flex items-center justify-between gap-4">
+
         {/* Track Info */}
-        <div className="flex items-center gap-3 min-w-0 max-w-[280px] sm:max-w-xs">
+        <div className="flex items-center gap-3 min-w-0 max-w-70 sm:max-w-xs">
           <div className="w-10 h-10 rounded-xl bg-zinc-900 border border-zinc-200 dark:border-zinc-800 overflow-hidden flex-shrink-0 relative group">
             <img
               src={currentTrack.coverImage}
@@ -68,17 +79,19 @@ export const AudioPlayerBar: React.FC<AudioPlayerBarProps> = ({
             <div className="flex items-center gap-2 text-[11px] text-zinc-500 dark:text-zinc-400">
               <span className="truncate">{currentTrack.artist}</span>
               <span>•</span>
-              <span className="text-primary font-semibold">{currentTrack.bpm} BPM</span>
+              <span className="text-primary font-semibold truncate">
+                {STEM_LABELS[currentStemKey]?.label || 'Original'}
+              </span>
             </div>
           </div>
         </div>
 
-        {/* Center Playback Controls */}
-        <div className="flex flex-col items-center gap-0.5 flex-1 max-w-md">
-          <div className="flex items-center gap-4">
+        {/* Center Playback Controls & Stem Switcher */}
+        <div className="flex flex-col items-center gap-1 flex-1 max-w-md">
+          <div className="flex items-center gap-3">
             <button
               onClick={onTogglePlay}
-              className="w-9 h-9 rounded-full bg-primary hover:bg-primary-hover text-zinc-950 flex items-center justify-center shadow-xs transition-transform active:scale-95"
+              className="w-9 h-9 rounded-full bg-primary hover:bg-primary-hover text-zinc-950 flex items-center justify-center shadow-xs transition-transform active:scale-95 cursor-pointer"
             >
               {isPlaying ? (
                 <Pause className="w-4 h-4 fill-current" />
@@ -87,6 +100,25 @@ export const AudioPlayerBar: React.FC<AudioPlayerBarProps> = ({
               )}
             </button>
           </div>
+
+          {/* Stem Selector Buttons in Player Bar (Only show defined stems) */}
+          {currentTrack.stems && (
+            <div className="flex items-center gap-1 bg-[#f5f5f7] dark:bg-zinc-900 p-0.5 rounded-full border border-zinc-200/80 dark:border-zinc-800">
+              {STEM_BUTTONS.filter(btn => Boolean(currentTrack.stems?.[btn.key])).map((btn) => (
+                <button
+                  key={btn.key}
+                  onClick={() => onSelectStem && onSelectStem(btn.key)}
+                  className={`px-2 py-0.5 rounded-full text-[10px] font-semibold transition-all cursor-pointer ${currentStemKey === btn.key
+                      ? 'bg-primary text-zinc-950 shadow-xs font-bold'
+                      : 'text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white'
+                    }`}
+                  title={STEM_LABELS[btn.key]?.description}
+                >
+                  {btn.label}
+                </button>
+              ))}
+            </div>
+          )}
 
           {/* Time indicator */}
           <div className="text-[10px] text-zinc-500 dark:text-zinc-400 font-mono flex items-center gap-1.5">

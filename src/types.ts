@@ -1,5 +1,28 @@
 export type Currency = 'USD' | 'EUR' | 'ARS';
 
+export type StemKey = 'demoTrack' | 'demoDrums' | 'recordedDrums' | 'finalSong';
+
+export interface AudioStems {
+  demoTrack?: string;     // 1- Demo de la canción
+  demoDrums?: string;     // 2- Demo drums
+  recordedDrums?: string; // 3- Recorded Drums
+  finalSong?: string;     // 4- Canción con la batería que grabé
+}
+
+export const STEM_LABELS: Record<StemKey, { label: string; description: string }> = {
+  demoTrack: { label: '1. Demo Canción', description: 'Demo previa sin la batería final' },
+  demoDrums: { label: '2. Demo Drums', description: 'Batería demo / MIDI de referencia' },
+  recordedDrums: { label: '3. Recorded Drums', description: 'Baterías grabadas crudas / multitrack' },
+  finalSong: { label: '4. Canción Final', description: 'Canción terminada con la batería grabada' }
+};
+
+export interface GalleryMediaItem {
+  type: 'image' | 'video';
+  url: string;         // MP4 video path or YouTube/Vimeo link, or Image path
+  thumbnail?: string;  // Preview image for video
+  title?: string;
+}
+
 export interface AudioTrack {
   id: string;
   title: string;
@@ -8,12 +31,17 @@ export interface AudioTrack {
   type: 'portfolio' | 'sample';
   durationSeconds: number;
   bpm: number;
-  audioFreq: number; // For synth frequency pitch simulation
+  audioFreq?: number; // For synth frequency pitch simulation fallback
   drumStyle: string;
   coverImage: string;
+  galleryImages?: string[]; // Multiple session & gear photos
+  videoUrl?: string;        // Session video link (e.g. MP4 or YouTube)
+  galleryItems?: GalleryMediaItem[]; // Gallery with photos & videos mixed
   hasABComparison?: boolean;
   samplePackId?: string;
   price?: number;
+  stems?: AudioStems;
+  defaultStem?: StemKey;
 }
 
 export interface Service {
