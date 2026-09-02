@@ -58,16 +58,16 @@ const INTERNATIONAL_COUNTRIES = [
 
 const FAQS = [
   {
-    question: '¿Cómo vas a recibire los tracks?',
+    question: '¿Cómo vas a recibir los tracks?',
     answer: 'Recibirás un multitrack (Pistas separadas) en formato WAV por cada toma de batería realizada, ya editadas y corregidas para que cada toma esté perfectamente a tiempo y sin errores en tu sesión. De esta forma podras enviar a mezclar o seguir produciendo sin problema'
   },
   {
     question: '¿Se pueden hacer devoluciones o revisiones?',
-    answer: 'Sí, por supuesto. Durante el proceso de grabación te enviaré muestras rápidas en MP3 para que escuches y confirmes cada toma antes de la entrega final del multitrack. luego re enviare el multitrack y ahí el trabajo se considera finalizado.'
+    answer: 'Sí, por supuesto. Durante el proceso de grabación te enviaré muestras rápidas en MP3 para que escuches y confirmes cada toma antes de la entrega final del multitrack. luego te enviaré el multitrack y ahí el trabajo se considera finalizado.'
   },
   {
-    question: '¿Puedes pedir variaciones de un mismo tema?',
-    answer: 'Si, claro. Cuando nos comuniquemos pueden indicar las ideas que tienes en mente para la cancion, puedo grabar versiones diferentes con distintos grooves o fills para que luego elijas la que mas te guste o puedas armar un blend de todo el material que te envio.'
+    question: '¿Puedo pedir variaciones de un mismo tema?',
+    answer: 'Si, claro. Cuando nos comuniquemos puedes indicar las ideas que tienes en mente para la cancion, puedo grabar versiones diferentes con distintos grooves o fills para que luego elijas la que mas te guste o puedas armar un blend de todo el material que te envio.'
   },
   {
     question: '¿Cuánto tiempo demoran las grabaciones?',
@@ -670,7 +670,7 @@ export const RemoteDrumsServiceDetail: React.FC<RemoteDrumsServiceDetailProps> =
               Equipamiento de Grabación & Microfonía
             </h2>
             <p className="text-zinc-600 dark:text-zinc-400 text-sm max-w-3xl">
-              Grabación multipista con equipamiento de estándar internacional e interfaces de última generación.
+              Equipamiento elegido particularmente para cada instrumento con estándares internacionales e interfaces de última generación.
             </p>
           </div>
 
@@ -750,7 +750,7 @@ export const RemoteDrumsServiceDetail: React.FC<RemoteDrumsServiceDetailProps> =
                       AKG D112
                     </h4>
                     <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
-                      Captación de sub-graves profundos e impacto contundente (Kick Out).
+                      Sub-graves profundos e impacto (Kick Out).
                     </p>
                   </div>
                   <div className="space-y-0.5 pt-2 border-t border-zinc-100 dark:border-zinc-900">
@@ -777,7 +777,7 @@ export const RemoteDrumsServiceDetail: React.FC<RemoteDrumsServiceDetailProps> =
                       Shure SM57
                     </h4>
                     <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
-                      Estándar dinámico de ataque preciso, cuerpo contundente y definición.
+                      Estándar dinámico, cuerpo contundente y definición.
                     </p>
                   </div>
                   <div className="space-y-0.5 pt-2 border-t border-zinc-100 dark:border-zinc-900">
@@ -785,7 +785,7 @@ export const RemoteDrumsServiceDetail: React.FC<RemoteDrumsServiceDetailProps> =
                       Sennheiser e609 (Snare Bottom)
                     </h4>
                     <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
-                      Diseño plano supercardioide de ataque rápido, ideal para entorchado y rechazo lateral.
+                      Diseño plano supercardioide de ataque rápido, ideal para bordonas  y rechazo lateral.
                     </p>
                   </div>
                 </div>
@@ -891,7 +891,7 @@ export const RemoteDrumsServiceDetail: React.FC<RemoteDrumsServiceDetailProps> =
                 Muestras de Grabación en Vivo
               </span>
               <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-white">
-                Escuchá el ponche y la calidad de las baterías
+                Escuchá el resultado en trabajos reales
               </h2>
             </div>
 

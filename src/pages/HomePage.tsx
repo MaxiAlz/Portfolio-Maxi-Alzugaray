@@ -42,13 +42,6 @@ export const HomePage: React.FC<HomePageProps> = ({
         onTogglePlay={onTogglePlay}
       />
 
-      {/* Services Section */}
-      <ServicesSection
-        services={services}
-        currency="USD"
-        onSelectServiceForQuote={(id) => onOpenQuote(id)}
-      />
-
       {/* Bio & Philosophy Section */}
       <section className="py-20 bg-[#f5f5f7] dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 border-t border-zinc-200/80 dark:border-zinc-800/80 transition-colors duration-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
@@ -76,7 +69,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               </span>
 
               <h2 className="text-3xl sm:text-4xl font-bold text-zinc-900 dark:text-white tracking-tight">
-                Musicalidad, energía y un sonido auténtico que potencie cada canción.
+                La musica desde una mirada global
               </h2>
 
               <p className="text-zinc-700 dark:text-zinc-300 text-sm sm:text-base leading-relaxed">
@@ -123,6 +116,18 @@ export const HomePage: React.FC<HomePageProps> = ({
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <ServicesSection
+        services={services}
+        currency="USD"
+        onSelectServiceForQuote={(id) => onOpenQuote(id)}
+      />
+
+      <section className="py-20 bg-[#f5f5f7] dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 border-t border-zinc-200/80 dark:border-zinc-800/80 transition-colors duration-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
 
           {/* Testimonials / Reseñas */}
           <div className="space-y-8 pt-10 border-t border-zinc-200/80 dark:border-zinc-800">
@@ -161,7 +166,6 @@ export const HomePage: React.FC<HomePageProps> = ({
               ))}
             </div>
           </div>
-
         </div>
       </section>
     </div>

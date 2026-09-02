@@ -18,7 +18,7 @@ import platillosPortadaImg from '../../assets/images/baterias/platillos_portada.
 export const INITIAL_SERVICES: Service[] = [
   {
     id: 'remote-drums',
-    title: 'Baterías Remotas',
+    title: 'Grabación de Baterías Online',
     subtitle: 'Grabación remota profesional a medida',
     description: `Grabo la batería de tu canción desde mi  studio profesional, teniendo en cuenta el audio que buscás, el instrumento ideal y la ejecución precisa para darle vida y ponche a tu producción.
 
@@ -138,7 +138,7 @@ export const INITIAL_AUDIO_TRACKS: AudioTrack[] = [
   {
     id: 'big-drums-tracks-1',
     title: 'Indie Pop Groove & Big Snare',
-    artist: 'Drum Session',
+    artist: 'Remote Drum Session',
     genre: 'Pop / Indie',
     type: 'portfolio',
     durationSeconds: 270,

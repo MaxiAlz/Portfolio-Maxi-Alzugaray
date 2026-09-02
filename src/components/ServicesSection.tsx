@@ -25,13 +25,13 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
         {/* Section Header - Apple Style */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
           <span className="text-xs font-semibold text-primary tracking-widest uppercase">
-            Servicios Profesionales
+            Audio, Grabación & Producción
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-900 dark:text-white">
-            Audio, Grabación & Producción
+            Mis Servicios Profesionales
           </h2>
           <p className="text-zinc-600 dark:text-zinc-400 text-base sm:text-lg">
-            Soluciones de ingeniería de audio adaptadas a proyectos independientes y productores globales.
+            Servicios adaptados a proyectos independientes y productores globales.
           </p>
         </div>
 
