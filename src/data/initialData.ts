@@ -14,6 +14,7 @@ import sonorImg1 from '../../assets/images/baterias/bateria_sonor_01.jpeg';
 import sonorImg2 from '../../assets/images/baterias/bateria_sonor_2.jpeg';
 import sonorImg3 from '../../assets/images/baterias/bateria_sonor_3.jpeg';
 import platillosPortadaImg from '../../assets/images/baterias/platillos_portada.JPG';
+import estudioGrabacionImg from '../../assets/images/grabacion_vivo_estudio/IMG_2897.JPG.jpeg';
 
 export const INITIAL_SERVICES: Service[] = [
   {
@@ -44,21 +45,21 @@ A través de un flujo de trabajo 100% colaborativo, recibís entre 8 y 10 canale
   },
   {
     id: 'live-studio-recording',
-    title: 'Grabación en Vivo y Estudio',
-    subtitle: 'Para bandas y artistas',
-    description: 'Servicios de captación y grabación profesional en estudio o en presentaciones en vivo, asegurando fidelidad sonora y dinámica orgánica para bandas y solistas.',
+    title: 'Grabación de audio en Estudio y en Vivo',
+    subtitle: 'Para bandas, solistas y festivales',
+    description: 'Servicios de captación y grabación profesional en estudio o en presentaciones en vivo, asegurando fidelidad sonora y dinámica orgánica con equipamiento de nivel internacional.',
     iconName: 'Radio',
-    image: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&q=80&w=800',
+    image: estudioGrabacionImg,
     basePriceUSD: 200,
     deliverables: [
-      'Captación multicanal en alta resolución',
-      'Micrófonos de alta gama y preamps valvulares',
-      'Mezcla previa de monitoreo en vivo',
-      'Entregables WAV 24bit/96kHz'
+      'Captación multicanal en alta resolución (24bit / 96kHz o 48kHz)',
+      'Micrófonos de alta gama y preamps de clase A',
+      'Split pasivo con aislamiento por transformador para vivo',
+      'Entregables WAV multitrack ordenados y rotulados'
     ],
     turnaroundDays: 5,
     popular: true,
-    features: ['Equipo técnico en locación', 'Monitoreo in-ear individual', 'Asesoría acústica']
+    features: ['Sistema móvil para locaciones y teatros', 'Grabación independiente del sonido de sala', 'Asesoría acústica y técnica']
   },
   {
     id: 'mixing-mastering',

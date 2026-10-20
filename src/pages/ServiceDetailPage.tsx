@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { Service, AudioTrack } from '../types';
 import { ArrowLeft, CheckCircle2, ShieldCheck, Clock, Sliders, ArrowRight } from 'lucide-react';
 import { RemoteDrumsServiceDetail } from '../components/RemoteDrumsServiceDetail';
+import { LiveStudioRecordingServiceDetail } from '../components/LiveStudioRecordingServiceDetail';
 
 interface ServiceDetailPageProps {
   services: Service[];
@@ -43,6 +44,19 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({
   if (service.id === 'remote-drums') {
     return (
       <RemoteDrumsServiceDetail
+        service={service}
+        onOpenQuote={onOpenQuote}
+        isPlaying={isPlaying}
+        currentTrack={currentTrack}
+        onTogglePlay={onTogglePlay}
+      />
+    );
+  }
+
+  // Use custom view for Live & Studio Audio Recording
+  if (service.id === 'live-studio-recording') {
+    return (
+      <LiveStudioRecordingServiceDetail
         service={service}
         onOpenQuote={onOpenQuote}
         isPlaying={isPlaying}

@@ -65,7 +65,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenQuote }) => {
             <h4 className="font-semibold text-primary uppercase tracking-wider text-[11px]">Servicios</h4>
             <ul className="space-y-2 text-zinc-600 dark:text-zinc-400">
               <li><button onClick={() => onOpenQuote()} className="hover:text-primary">Baterías Remotas</button></li>
-              <li><button onClick={() => onOpenQuote()} className="hover:text-primary">Grabación en Vivo y Estudio</button></li>
+              <li><button onClick={() => onOpenQuote()} className="hover:text-primary">Grabación de audio en Estudio y en Vivo</button></li>
               <li><button onClick={() => onOpenQuote()} className="hover:text-primary">Mezcla y Mastering</button></li>
               <li><button onClick={() => onOpenQuote()} className="hover:text-primary">Producción de Eventos</button></li>
               <li><button onClick={() => onOpenQuote()} className="hover:text-primary">Sesiones 1 a 1</button></li>
